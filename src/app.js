@@ -37,3 +37,9 @@ sequelize.authenticate()
   .catch(err => console.error('❌ Erro ao conectar ao banco:', err));
 
 module.exports = app;
+
+if (require.main === module) {
+  app.listen(process.env.PORT || 3000);
+} else {
+  module.exports = app;
+}
